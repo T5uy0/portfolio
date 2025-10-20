@@ -1,11 +1,172 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Julien Schneider — Portfolio développeur</title>
+    <meta name="description" content="Portfolio de Julien Schneider : projets, compétences, expérience et contact." />
+    <!-- Tailwind Play CDN (idéal proto / petit site statique). Pour prod critique, passer au build Tailwind. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: {
+                            bg: '#0b1020',
+                            card: '#0f172a',
+                            text: '#e2e8f0',
+                            muted: '#94a3b8',
+                            ring: '#22d3ee'
+                        }
+                    }
+                }
+            },
+            darkMode: 'media'
+        }
+    </script>
 </head>
-<body>
-    <h1>Hello World !</h1>
+<body class="min-h-screen bg-white text-slate-900 antialiased selection:bg-cyan-200/60 dark:bg-slate-950 dark:text-slate-100">
+<!-- Barre de navigation -->
+<header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="#top" class="font-semibold tracking-tight">Julien Schneider</a>
+        <nav aria-label="Navigation principale" class="flex gap-2 text-sm">
+            <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#projets">Projets</a>
+            <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#competences">Compétences</a>
+            <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#parcours">Parcours</a>
+            <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#apropos">À propos</a>
+            <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main id="top" class="max-w-5xl mx-auto px-4">
+    <!-- HERO / ACCROCHE -->
+    <section class="py-12 sm:py-16">
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+            <div class="space-y-4">
+                <h1 class="text-3xl/tight sm:text-4xl/tight font-semibold">J'aide les équipes à livrer vite et bien</h1>
+                <p class="text-slate-600 dark:text-slate-300">Spécialisé en microservices, APIs performantes et fiabilité en production. Disponible pour missions freelance et CDI.</p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#projets" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:opacity-90">Voir mes projets</a>
+                    <a href="/cv.pdf" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Télécharger mon CV</a>
+                </div>
+            </div>
+            <div class="rounded-3xl border border-slate-200 dark:border-slate-800 p-3">
+                <img src="/img/profile.jpg" alt="Portrait de Julien Schneider" class="rounded-2xl w-full object-cover aspect-square" />
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGNE DE SÉPARATION SUBTILE -->
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent"></div>
+
+    <!-- PROJETS -->
+    <section id="projets" class="py-12 sm:py-16">
+        <h2 class="text-2xl font-semibold mb-6">Projets sélectionnés</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+            <!-- Projet 1 -->
+            <article class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+                <img src="/projets/p1.jpg" alt="Capture d'écran du projet IoT" class="w-full aspect-video object-cover" />
+                <div class="p-5">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">2025 • Spring Boot, Kafka, Docker, PostgreSQL</p>
+                    <h3 class="mt-2 text-lg font-semibold">API d'agrégation IoT temps réel</h3>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">Ingestion 120k msgs/min, latence P95 ≈ 80 ms, observabilité Grafana.</p>
+                    <div class="mt-4 flex gap-3 text-sm">
+                        <a href="https://github.com/T5uy0/projet1" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Code</a>
+                        <a href="#" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Étude de cas</a>
+                    </div>
+                </div>
+            </article>
+            <!-- Projet 2 -->
+            <article class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+                <img src="/projets/p2.jpg" alt="Capture du dashboard métier" class="w-full aspect-video object-cover" />
+                <div class="p-5">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">2024 • React, Spring, Kubernetes, CI/CD</p>
+                    <h3 class="mt-2 text-lg font-semibold">Dashboard métier auto‑scalable</h3>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">TTFB ‑60 %, features 2× plus vite via GitHub Actions.</p>
+                    <div class="mt-4 flex gap-3 text-sm">
+                        <a href="https://github.com/T5uy0/projet2" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Code</a>
+                        <a href="#" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Étude de cas</a>
+                    </div>
+                </div>
+            </article>
+            <!-- Projet 3 -->
+            <article class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden sm:col-span-2">
+                <img src="/projets/p3.jpg" alt="Capture du moteur de scoring" class="w-full aspect-video object-cover" />
+                <div class="p-5">
+                    <p class="text-xs text-slate-500 dark:text-slate-400">2023 • Java, PostgreSQL, OpenTelemetry</p>
+                    <h3 class="mt-2 text-lg font-semibold">Moteur de scoring clients</h3>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">Temps de calcul ÷4, auditabilité complète.</p>
+                    <div class="mt-4 flex gap-3 text-sm">
+                        <a href="https://github.com/T5uy0/projet3" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Code</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Séparateur -->
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent"></div>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences" class="py-12 sm:py-16">
+        <h2 class="text-2xl font-semibold mb-6">Compétences clés</h2>
+        <ul class="grid sm:grid-cols-2 gap-3 text-slate-700 dark:text-slate-300">
+            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Back‑end : Java, Spring Boot, REST, Kafka</li>
+            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Infra : Docker, Kubernetes, CI/CD, monitoring</li>
+            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Base de données : PostgreSQL, optimisation requêtes</li>
+            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Front : React, bonnes pratiques UX</li>
+        </ul>
+    </section>
+
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent"></div>
+
+    <!-- PARCOURS (Études & Stages) -->
+    <section id="parcours" class="py-12 sm:py-16">
+        <h2 class="text-2xl font-semibold mb-6">Parcours — Études & Stages</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+                <h3 class="font-semibold mb-3">Études</h3>
+                <ul class="space-y-2 text-slate-700 dark:text-slate-300 text-sm">
+                    <li><strong>[Diplôme / École]</strong> — [Ville] — [Années]. Principaux cours : [cours 1], [cours 2], [cours 3].</li>
+                    <li><strong>[Certif / MOOC]</strong> — [Plateforme] — [Année]. Sujet : [sujet].</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold mb-3">Stages</h3>
+                <ul class="space-y-2 text-slate-700 dark:text-slate-300 text-sm">
+                    <li><strong>[Entreprise A]</strong> — [Rôle] — [Dates]. Mission : [problème] → [solution] → Impact : [chiffres clés].</li>
+                    <li><strong>[Entreprise B]</strong> — [Rôle] — [Dates]. Mission : [problème] → [solution] → Impact : [chiffres clés].</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent"></div>
+
+    <!-- À PROPOS -->
+    <section id="apropos" class="py-12 sm:py-16">
+        <h2 class="text-2xl font-semibold mb-4">À propos</h2>
+        <p class="text-slate-700 dark:text-slate-300 max-w-3xl">Je conçois des services fiables, simples à maintenir et rapides. J'aime les systèmes distribués, les revues de code bienveillantes et l'observabilité. Travail en cycles courts, proche des utilisateurs.</p>
+    </section>
+
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent"></div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-12 sm:py-16">
+        <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+        <div class="space-y-2 text-slate-700 dark:text-slate-300">
+            <p>Un projet, une opportunité ? Écris‑moi : <a class="underline underline-offset-4" href="mailto:prenom.nom@email.com">prenom.nom@email.com</a></p>
+            <p>Réseaux : <a class="underline underline-offset-4" href="https://github.com/T5uy0">GitHub</a> · <a class="underline underline-offset-4" href="https://www.linkedin.com/in/julien-s-810878279/">LinkedIn</a></p>
+        </div>
+    </section>
+</main>
+
+<!-- Pied de page -->
+<footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 py-6 text-sm text-slate-500 dark:text-slate-400">© 2025 — Julien Schneider. Tous droits réservés.</div>
+</footer>
 </body>
 </html>
