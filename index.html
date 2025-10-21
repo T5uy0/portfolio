@@ -28,15 +28,41 @@
 </head>
 <body class="min-h-screen bg-white text-slate-900 antialiased selection:bg-cyan-200/60 dark:bg-slate-950 dark:text-slate-100">
 <!-- Barre de navigation -->
-<header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-800">
+<header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-800 relative">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="#top" class="font-semibold tracking-tight">Julien Schneider</a>
-        <nav aria-label="Navigation principale" class="flex gap-2 text-sm">
+
+
+        <!-- Nav desktop -->
+        <nav aria-label="Navigation principale" class="hidden md:flex gap-2 text-sm">
             <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#projets">Projets</a>
             <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#competences">Compétences</a>
             <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#parcours">Parcours</a>
             <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#apropos">À propos</a>
             <a class="px-3 py-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#contact">Contact</a>
+        </nav>
+
+
+        <!-- Bouton burger (mobile) -->
+        <button id="menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800" aria-expanded="false" aria-controls="menu-panel" aria-label="Ouvrir le menu">
+<span data-icon="open" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M3.75 6.75h16.5v1.5H3.75zM3.75 11.25h16.5v1.5H3.75zM3.75 15.75h16.5v1.5H3.75z"/></svg>
+</span>
+            <span data-icon="close" class="hidden" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M6.225 4.811 4.811 6.225 10.586 12l-5.775 5.775 1.414 1.414L12 13.414l5.775 5.775 1.414-1.414L13.414 12l5.775-5.775-1.414-1.414L12 10.586z"/></svg>
+</span>
+        </button>
+    </div>
+
+
+    <!-- Panneau mobile -->
+    <div id="menu-panel" class="md:hidden absolute left-0 right-0 top-full bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b border-slate-200/60 dark:border-slate-800 hidden">
+        <nav class="px-4 py-3 grid gap-1 text-sm" aria-label="Navigation principale (mobile)">
+            <a class="block px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#projets">Projets</a>
+            <a class="block px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#competences">Compétences</a>
+            <a class="block px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#parcours">Parcours</a>
+            <a class="block px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#apropos">À propos</a>
+            <a class="block px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="#contact">Contact</a>
         </nav>
     </div>
 </header>
@@ -46,11 +72,14 @@
     <section class="py-12 sm:py-16">
         <div class="grid md:grid-cols-2 gap-6 items-center">
             <div class="space-y-4">
-                <h1 class="text-3xl/tight sm:text-4xl/tight font-semibold">J'aide les équipes à livrer vite et bien</h1>
-                <p class="text-slate-600 dark:text-slate-300">Spécialisé en microservices, APIs performantes et fiabilité en production. Disponible pour missions freelance et CDI.</p>
+                <h1 class="text-3xl/tight sm:text-4xl/tight font-semibold">Simple, mais pas simpliste.</h1>
+                <p class="text-slate-600 dark:text-slate-300">
+                    Étudiant en Professional Bachelor au CPNV (Sainte-Croix, CH).
+                    Je conçois des applications 100 % personnalisées, durables et accessibles à tous les budgets.
+                    Ma devise : simple, jamais simpliste.
+                </p>
                 <div class="flex flex-wrap gap-3">
                     <a href="#projets" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:opacity-90">Voir mes projets</a>
-                    <a href="/cv.pdf" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Télécharger mon CV</a>
                 </div>
             </div>
             <div class="rounded-3xl border border-slate-200 dark:border-slate-800 p-3">
@@ -64,43 +93,32 @@
 
     <!-- PROJETS -->
     <section id="projets" class="py-12 sm:py-16">
-        <h2 class="text-2xl font-semibold mb-6">Projets sélectionnés</h2>
+        <h2 class="text-2xl font-semibold mb-6">Projets réalisés</h2>
         <div class="grid sm:grid-cols-2 gap-6">
             <!-- Projet 1 -->
-            <article class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-                <img src="/projets/p1.jpg" alt="Capture d'écran du projet IoT" class="w-full aspect-video object-cover" />
-                <div class="p-5">
-                    <p class="text-xs text-slate-500 dark:text-slate-400">2025 • Spring Boot, Kafka, Docker, PostgreSQL</p>
-                    <h3 class="mt-2 text-lg font-semibold">API d'agrégation IoT temps réel</h3>
-                    <p class="mt-2 text-slate-600 dark:text-slate-300">Ingestion 120k msgs/min, latence P95 ≈ 80 ms, observabilité Grafana.</p>
-                    <div class="mt-4 flex gap-3 text-sm">
-                        <a href="https://github.com/T5uy0/projet1" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Code</a>
-                        <a href="#" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Étude de cas</a>
-                    </div>
-                </div>
-            </article>
+
             <!-- Projet 2 -->
             <article class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-                <img src="/projets/p2.jpg" alt="Capture du dashboard métier" class="w-full aspect-video object-cover" />
+                <img src="/img/tizoo_ia.png" alt="Capture du tableau de bord métier" class="w-full aspect-video object-cover" />
                 <div class="p-5">
-                    <p class="text-xs text-slate-500 dark:text-slate-400">2024 • React, Spring, Kubernetes, CI/CD</p>
-                    <h3 class="mt-2 text-lg font-semibold">Dashboard métier auto‑scalable</h3>
-                    <p class="mt-2 text-slate-600 dark:text-slate-300">TTFB ‑60 %, features 2× plus vite via GitHub Actions.</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">2025 • Laravel, PHP, Filament, PostgreSQL, CI/CD, GitLab</p>
+                    <h3 class="mt-2 text-lg font-semibold">Plateforme d’e-learning avec IA</h3>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">Une plateforme qui permet d’apprendre l’informatique et la programmation de manière 100 % personnalisée, grâce à un LLM qui personnalise et fait évoluer les cours pour chaque utilisateur.</p>
                     <div class="mt-4 flex gap-3 text-sm">
-                        <a href="https://github.com/T5uy0/projet2" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Code</a>
-                        <a href="#" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Étude de cas</a>
+                        <a href="https://www.tizoo.com" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Projet interne à TiZoo Sàrl</a>
                     </div>
                 </div>
             </article>
+
             <!-- Projet 3 -->
-            <article class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden sm:col-span-2">
-                <img src="/projets/p3.jpg" alt="Capture du moteur de scoring" class="w-full aspect-video object-cover" />
+            <article class="rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+                <img src="/img/larasta.png" alt="Logo Larasta" class="w-full aspect-video object-cover" />
                 <div class="p-5">
-                    <p class="text-xs text-slate-500 dark:text-slate-400">2023 • Java, PostgreSQL, OpenTelemetry</p>
-                    <h3 class="mt-2 text-lg font-semibold">Moteur de scoring clients</h3>
-                    <p class="mt-2 text-slate-600 dark:text-slate-300">Temps de calcul ÷4, auditabilité complète.</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">2025 • Laravel, PHP, MySQL, JavaScript</p>
+                    <h3 class="mt-2 text-lg font-semibold">Larasta</h3>
+                    <p class="mt-2 text-slate-600 dark:text-slate-300">Mise en production d’une application de gestion de stages qui assure des processus complets, depuis les envies des élèves jusqu’à la notation finale de leur stage. Application utilisée quotidiennement par le CPNV de Sainte-Croix.</p>
                     <div class="mt-4 flex gap-3 text-sm">
-                        <a href="https://github.com/T5uy0/projet3" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Code</a>
+                        <a href="https://www.cpnv.ch" class="px-3 py-1.5 rounded-xl border border-slate-300/70 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">Projet interne au CPNV</a>
                     </div>
                 </div>
             </article>
@@ -114,10 +132,10 @@
     <section id="competences" class="py-12 sm:py-16">
         <h2 class="text-2xl font-semibold mb-6">Compétences clés</h2>
         <ul class="grid sm:grid-cols-2 gap-3 text-slate-700 dark:text-slate-300">
-            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Back‑end : Java, Spring Boot, REST, Kafka</li>
-            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Infra : Docker, Kubernetes, CI/CD, monitoring</li>
-            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Base de données : PostgreSQL, optimisation requêtes</li>
-            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Front : React, bonnes pratiques UX</li>
+            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Back-end : Laravel, PHP, Ruby, REST</li>
+            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Infra : Git, Docker, CI/CD, monitoring</li>
+            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Base de données : PostgreSQL, MySQL, MongoDB, Redis, optimisation des requêtes</li>
+            <li class="px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800">Mobile : Flutter, Jetpack Compose (Kotlin), bonnes pratiques UX</li>
         </ul>
     </section>
 
@@ -130,15 +148,16 @@
             <div>
                 <h3 class="font-semibold mb-3">Études</h3>
                 <ul class="space-y-2 text-slate-700 dark:text-slate-300 text-sm">
-                    <li><strong>[Diplôme / École]</strong> — [Ville] — [Années]. Principaux cours : [cours 1], [cours 2], [cours 3].</li>
-                    <li><strong>[Certif / MOOC]</strong> — [Plateforme] — [Année]. Sujet : [sujet].</li>
+                    <li><strong>Professional Bachelor / CPNV</strong> — Sainte-Croix — [2024-2026]. Principaux cours : Laravel, virtualisation, SQL.</li>
+                    <li><strong>CFC / Électronicien</strong> — Forces aériennes, base de Payerne — [2020-2024]. Développement de prototypes, dépannages d’appareils.</li>
                 </ul>
             </div>
             <div>
                 <h3 class="font-semibold mb-3">Stages</h3>
                 <ul class="space-y-2 text-slate-700 dark:text-slate-300 text-sm">
-                    <li><strong>[Entreprise A]</strong> — [Rôle] — [Dates]. Mission : [problème] → [solution] → Impact : [chiffres clés].</li>
-                    <li><strong>[Entreprise B]</strong> — [Rôle] — [Dates]. Mission : [problème] → [solution] → Impact : [chiffres clés].</li>
+                    <li><strong>TiZoo Sàrl</strong> — Plateforme d’e-learning avec IA — [2025]. Mission : développement d’une application d’apprentissage avec l’IA.</li>
+                    <li><strong>Simulateur F/A-18</strong> — Maintenance du simulateur F/A-18 — [2024]. Mission : assurer la maintenance sur le simulateur F/A-18.</li>
+                    <li><strong>Avionicien, base aérienne de Payerne</strong> — Maintenance F/A-18, Cougar, Tiger — [2023]. Mission : assurer la maintenance sur des appareils militaires.</li>
                 </ul>
             </div>
         </div>
@@ -149,7 +168,9 @@
     <!-- À PROPOS -->
     <section id="apropos" class="py-12 sm:py-16">
         <h2 class="text-2xl font-semibold mb-4">À propos</h2>
-        <p class="text-slate-700 dark:text-slate-300 max-w-3xl">Je conçois des services fiables, simples à maintenir et rapides. J'aime les systèmes distribués, les revues de code bienveillantes et l'observabilité. Travail en cycles courts, proche des utilisateurs.</p>
+        <p class="text-slate-700 dark:text-slate-300 max-w-3xl">
+            Je conçois des services fiables, simples à maintenir et rapides. J’aime les systèmes distribués, les revues de code constructives et l’observabilité. Travail en cycles courts, flexible et proche des utilisateurs.
+        </p>
     </section>
 
     <div class="h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent"></div>
@@ -158,8 +179,8 @@
     <section id="contact" class="py-12 sm:py-16">
         <h2 class="text-2xl font-semibold mb-4">Contact</h2>
         <div class="space-y-2 text-slate-700 dark:text-slate-300">
-            <p>Un projet, une opportunité ? Écris‑moi : <a class="underline underline-offset-4" href="mailto:prenom.nom@email.com">prenom.nom@email.com</a></p>
-            <p>Réseaux : <a class="underline underline-offset-4" href="https://github.com/T5uy0">GitHub</a> · <a class="underline underline-offset-4" href="https://www.linkedin.com/in/julien-s-810878279/">LinkedIn</a></p>
+            <p>Un projet, une opportunité ? Écris-moi : <a class="underline underline-offset-4" href="mailto:contact@julienschneider.com">contact@julienschneider.com</a></p>
+            <p>Réseaux : <a class="underline underline-offset-4" href="https://github.com/T5uy0">GitHub</a> · <a class="underline underline-offset-4" href="https://www.linkedin.com/in/julien-s-810878279/">LinkedIn</a></p>
         </div>
     </section>
 </main>
@@ -168,5 +189,36 @@
 <footer class="border-t border-slate-200 dark:border-slate-800">
     <div class="max-w-5xl mx-auto px-4 py-6 text-sm text-slate-500 dark:text-slate-400">© 2025 — Julien Schneider. Tous droits réservés.</div>
 </footer>
+<script>
+    (function(){
+        const btn = document.getElementById('menu-btn');
+        const panel = document.getElementById('menu-panel');
+        if(!btn || !panel) return;
+        const openIcon = btn.querySelector('[data-icon="open"]');
+        const closeIcon = btn.querySelector('[data-icon="close"]');
+
+
+        function setOpen(isOpen){
+            btn.setAttribute('aria-expanded', String(isOpen));
+            panel.classList.toggle('hidden', !isOpen);
+            if(openIcon && closeIcon){
+                openIcon.classList.toggle('hidden', isOpen);
+                closeIcon.classList.toggle('hidden', !isOpen);
+            }
+            document.body.classList.toggle('overflow-hidden', isOpen);
+        }
+
+
+        btn.addEventListener('click', ()=>{
+            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+            setOpen(!isOpen);
+        });
+
+
+        panel.querySelectorAll('a').forEach(a=>{
+            a.addEventListener('click', ()=> setOpen(false));
+        });
+    })();
+</script>
 </body>
 </html>
